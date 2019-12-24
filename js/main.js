@@ -23,6 +23,9 @@ var vm = new Vue({
 
             支領金額 -健保 -所得 = 含稅價
             X - 0.1X - 0.0191X = 0.8809X
+
+            倒推公式
+            支領金額 -健保 -所得 = 含稅價
             X/0.8809 - 0.1X/0.8809 - 0.0191X/0.8809 = X
         */
 
@@ -36,8 +39,6 @@ var vm = new Vue({
                 this.health_insurance = 0;
             }
             
-            // this.health_insurance = this.toggle ? Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
-            
             return this.health_insurance;
         },
         // 所得稅
@@ -49,8 +50,6 @@ var vm = new Vue({
                 this.health_insurance_rate = 0;
                 this.health_insurance = 0;
             }
-
-            // this.income_tax = this.final_actual_collar > 20000 ? Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
             
             return this.income_tax;
         },
