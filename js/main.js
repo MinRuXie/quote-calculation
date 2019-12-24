@@ -47,8 +47,8 @@ var vm = new Vue({
                 this.income_tax_rate = 0.1;
                 this.income_tax = Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
-                this.health_insurance_rate = 0;
-                this.health_insurance = 0;
+                this.income_tax_rate = 0;
+                this.income_tax = 0;
             }
             
             return this.income_tax;
