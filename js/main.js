@@ -22,7 +22,7 @@ var vm = new Vue({
         },
         // 所得稅
         getIncomeTax: function () {
-            this.income_tax = this.final_actual_collar >= 20000 ? Math.floor(this.final_actual_collar * this.income_tax_rate) : 0;
+            this.income_tax = this.final_actual_collar > 20000 ? Math.floor(this.final_actual_collar * this.income_tax_rate) : 0;
             return this.income_tax;
         },
         // 含稅報價(支領金額)=最終實領(支領淨額)+健保費+所得稅
