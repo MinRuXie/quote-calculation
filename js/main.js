@@ -28,12 +28,30 @@ var vm = new Vue({
 
         // 健保費
         getHealthInsurance: function () {
-            this.health_insurance = this.toggle ? Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
+            if (this.toggle) {
+                this.health_insurance_rate = 0.0191;
+                this.health_insurance = Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+            } else {
+                this.health_insurance_rate = 0;
+                this.health_insurance = 0;
+            }
+            
+            // this.health_insurance = this.toggle ? Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
+            
             return this.health_insurance;
         },
         // 所得稅
         getIncomeTax: function () {
-            this.income_tax = this.final_actual_collar > 20000 ? Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
+            if (this.final_actual_collar > 20000) {
+                this.income_tax_rate = 0.1;
+                this.income_tax = Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+            } else {
+                this.health_insurance_rate = 0;
+                this.health_insurance = 0;
+            }
+
+            // this.income_tax = this.final_actual_collar > 20000 ? Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate)) : 0;
+            
             return this.income_tax;
         },
         // 含稅報價(支領金額)=最終實領(支領淨額)+健保費+所得稅
