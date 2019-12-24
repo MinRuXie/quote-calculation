@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>勞務報酬計算機</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
+<body>
+
+    <section id="app">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-4 offset-md-4 offset-sm-4 col-lg-4 col-md-4 col-sm-4 col-4">含稅報價(支領金額)</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">不含稅報價(支領金額)</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">支領金額</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                    {{getTaxIncludedQuotation}}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                    {{getTaxExcludeQuotation}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                    <input type="checkbox" name="insurance" v-model="toggle">
+                    健保費 1.91%
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">{{getHealthInsurance}}</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">所得稅 10%（>=20K）</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">{{getIncomeTax}}</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">最終實領(支領淨額)</div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                    <input type="number" min="0" v-model="final_actual_collar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
