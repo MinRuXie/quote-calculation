@@ -1,3 +1,90 @@
+html, body {
+  -webkit-font-smoothing: antialiased;
+  font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-wrap {
+  width: 80vw;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row-gap: 10px;
+  padding: 20px;
+  background-color: #FFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.grid-wrap .grid-item {
+  padding: 10px 5px 10px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.grid-wrap .grid-item:nth-child(even) {
+  justify-content: flex-end;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+input[type=number] {
+  width: 100%;
+  text-align: right;
+  border-left: 0 solid transparent;
+  border-right: 0 solid transparent;
+}
+
+input[type=number]:focus {
+  outline: unset;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=checkbox] {
+  margin-left: 5px;
+}
+
+label {
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .grid-wrap {
+    width: 100%;
+    padding: 30px 5vw;
+    max-width: 100%;
+    grid-template-columns: 70% 30%;
+    grid-row-gap: 20px;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .grid-wrap .grid-item {
+    padding: 10px 0;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
