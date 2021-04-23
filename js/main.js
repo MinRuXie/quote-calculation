@@ -4,9 +4,10 @@ var vm = new Vue({
         final_actual_collar: 20000, // 最終實領(支領淨額)
         tax_included_quotation: 0, // 含稅報價(支領金額)
         tax_exclude_quotation: 0, // 不含稅報價(支領金額) 
-        toggle: true, // 是否勾選健保費
+        health_toggle: true, // 是否勾選健保費
         health_insurance_rate: 0.0211, // 健保費率 2021 2.11%
         health_insurance: 0, // 健保費
+        income_tax_toggle: true,
         income_tax_rate: 0.1, // 所得稅率(低於兩萬不扣)
         income_tax: 0, // 所得稅
     },
@@ -31,7 +32,7 @@ var vm = new Vue({
 
         // 健保費
         getHealthInsurance: function () {
-            if (this.toggle) {
+            if (this.health_toggle) {
                 this.health_insurance_rate = 0.0211;
                 this.health_insurance = Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
@@ -43,14 +44,14 @@ var vm = new Vue({
         },
         // 所得稅
         getIncomeTax: function () {
-            if (this.final_actual_collar > 20000) {
+            if (this.income_tax_toggle && this.final_actual_collar > 20000) {
                 this.income_tax_rate = 0.1;
                 this.income_tax = Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
                 this.income_tax_rate = 0;
                 this.income_tax = 0;
             }
-            
+
             return this.income_tax;
         },
         // 含稅報價(支領金額)=最終實領(支領淨額)+健保費+所得稅

@@ -17,10 +17,13 @@
             <div class="grid-item">{{getTaxIncludedQuotation}}</div>
             <div class="grid-item">
                 <label for="health_insurance_fare">健保費 2.11%</label>
-                <input type="checkbox" id="health_insurance_fare" name="insurance" v-model="toggle">
+                <input type="checkbox" id="health_insurance_fare" name="insurance" v-model="health_toggle">
             </div>
             <div class="grid-item">{{getHealthInsurance}}</div>
-            <div class="grid-item">所得稅 10%（>20K）</div>
+            <div class="grid-item">
+                <label for="income_tax_fare">所得稅 10%（>20K）</label>
+                <input type="checkbox" id="income_tax_fare" name="income_tax" v-model="income_tax_toggle">
+            </div>
             <div class="grid-item">{{getIncomeTax}}</div>
             <div class="grid-item">最終實領（支領淨額）</div>
             <div class="grid-item">
