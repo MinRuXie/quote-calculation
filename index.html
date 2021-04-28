@@ -14,9 +14,9 @@
         <h1>勞務報酬計算機</h1>
         <section class="card_wrap">
             <div id="app" class="card">
-                <h2>含稅報價計算機</h2>
+                <h2>報價計算機</h2>
                 <div  class="grid-wrap">
-                    <div class="grid-item">含稅報價（支領金額）</div>
+                    <div class="grid-item">報價（支領金額）</div>
                     <div class="grid-item">{{getTaxIncludedQuotation}}</div>
                     <div class="grid-item">
                         <label for="health_insurance_fare">健保費 2.11%</label>
@@ -37,9 +37,9 @@
             <div id="app2" class="card">
                 <h2>最終實領計算機</h2>
                 <div class="grid-wrap">
-                    <div class="grid-item">含稅報價（支領金額）</div>
+                    <div class="grid-item">報價（支領金額）</div>
                     <div class="grid-item">
-                        <input type="number" min="0" placeholder="請輸入金額" v-model="tax_included_quotation">
+                        <input type="number" min="0" placeholder="請輸入金額" v-model="quotation">
                     </div>
                     <div class="grid-item">
                         <label for="health_insurance_fare">健保費 2.11%</label>
