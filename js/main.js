@@ -16,7 +16,7 @@ var app1 = new Vue({
         getHealthInsurance: function () {
             if (this.health_toggle) {
                 this.health_insurance_rate = 0.0211;
-                this.health_insurance = Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+                this.health_insurance = Math.round((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
                 this.health_insurance_rate = 0;
                 this.health_insurance = 0;
@@ -28,7 +28,7 @@ var app1 = new Vue({
         getIncomeTax: function () {
             if (this.income_tax_toggle && this.final_actual_collar > 20000) {
                 this.income_tax_rate = 0.1;
-                this.income_tax = Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+                this.income_tax = Math.round((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
                 this.income_tax_rate = 0;
                 this.income_tax = 0;
@@ -38,7 +38,7 @@ var app1 = new Vue({
         },
         // 含稅報價(支領金額)=最終實領(支領淨額)+健保費+所得稅
         getTaxIncludedQuotation: function () {
-            this.tax_included_quotation = Math.floor(parseInt(this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+            this.tax_included_quotation = Math.round(parseInt(this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             console.log("getTaxIncludedQuotation");
             return this.tax_included_quotation;
         },
@@ -74,7 +74,7 @@ var app2 = new Vue({
         getHealthInsurance: function () {
             if (this.health_toggle) {
                 this.health_insurance_rate = 0.0211;
-                this.health_insurance = Math.floor((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+                this.health_insurance = Math.round((this.health_insurance_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
                 this.health_insurance_rate = 0;
                 this.health_insurance = 0;
@@ -86,7 +86,7 @@ var app2 = new Vue({
         getIncomeTax: function () {
             if (this.income_tax_toggle && this.final_actual_collar > 20000) {
                 this.income_tax_rate = 0.1;
-                this.income_tax = Math.floor((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+                this.income_tax = Math.round((this.income_tax_rate * this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             } else {
                 this.income_tax_rate = 0;
                 this.income_tax = 0;
@@ -96,7 +96,7 @@ var app2 = new Vue({
         },
         // 含稅報價(支領金額)=最終實領(支領淨額)+健保費+所得稅
         getTaxIncludedQuotation: function () {
-            this.tax_included_quotation = Math.floor(parseInt(this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
+            this.tax_included_quotation = Math.round(parseInt(this.final_actual_collar)/(1 - this.health_insurance_rate - this.income_tax_rate));
             console.log("getTaxIncludedQuotation");
             return this.tax_included_quotation;
         },
